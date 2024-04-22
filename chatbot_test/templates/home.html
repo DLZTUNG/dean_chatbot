@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+    />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/reset.css" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+  </head>
+  <body>
+    <div class="header" id="head">
+      <div class="logo">
+        <a href="#">
+          <img
+            src="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+            alt="F8"
+          />
+        </a>
+        <h4 class="slogan">Học Lập Trình Thật Đơn Giản</h4>
+      </div>
+      <div class="search">
+        <div class="search search-real" id="search-box">
+          <form
+            class="form-search"
+            action="{{ url_for('Load_home_page') }}"
+            method="POST"
+          >
+            <div class="searchitem">
+              <button type="submit" class="search-btn">
+                <div>
+                  <i
+                    class="fa-solid fa-magnifying-glass fa-xl"
+                    style="color: #cccccc"
+                  ></i>
+                </div>
+              </button>
+            </div>
+            <input
+              name="search-input"
+              class="Search_input"
+              id="search-input"
+              spellcheck="false"
+              placeholder="Tìm kiếm khóa học,..."
+              value=""
+            />
+          </form>
+        </div>
+        <div class="search-result"></div>
+      </div>
+      <div class="sign-cta">
+        <a href="/signin" class="btn sign-in">Đăng nhập</a>
+        <a href="/signup" class="btn">Đăng ký</a>
+      </div>
+    </div>
+    <div class="withsidebar">
+      <div class="sidewrap">
+        <div class="Sidebar_wraper" id="sidebar">
+          <ul class="Sidebar-list">
+            <li>
+              <a
+                aria-current="page"
+                class="Sidebar_itemBtn Sidebar_active"
+                href="#"
+              >
+                <svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="house"
+                  class="svg-inline--fa fa-house"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 576 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"
+                  ></path>
+                </svg>
+                <span>Trang chủ</span>
+              </a>
+            </li>
+            <li>
+              <a class="Sidebar_itemBtn Sidebar_active" href="#course"
+                ><svg
+                  aria-hidden="true"
+                  focusable="false"
+                  data-prefix="fas"
+                  data-icon="lightbulb"
+                  class="svg-inline--fa fa-lightbulb"
+                  role="img"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"
+                  ></path>
+                </svg>
+                <span>Khóa học</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="sidebar-content">
+        <section
+          class="index-module_grid index-module_fullWidth"
+          style="max-width: 1920px"
+        >
+          <div class="thumb wrapper">
+            <img src="../static/img/thumbnail.svg" alt="" />
+          </div>
+          <div class="main-content">
+            <section class="content course">
+              <h2 class="sub-title" id="course">Danh sách khóa học</h2>
+              <div class="course-list">
+                {% for course in courses %}
+                <ul class="course-item">
+                  <a
+                    href="{{ url_for('Load_product_page', coursename=course[1]) }}"
+                  >
+                    <img
+                      class="course-image"
+                      src="{{ url_for('get_image', course_id=course[0]) }}"
+                      alt="Hình ảnh khóa học"
+                  /></a>
+                  <li class="course-name">{{ course[1] }}</li>
+                  <li class="course-category">{{ course[2] }}</li>
+                  <li class="course-cost">{{ course[4] }}</li>
+                </ul>
+                {% endfor %}
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script>
+      // --------------------------------------------------------------
+      //Làm đậm thanh tìm kiếm khi click
+      var searchInput = document.getElementById("search-input");
+      var searchBox = document.getElementById("search-box");
+      var originalBorderColor = window.getComputedStyle(searchBox).borderColor;
+
+      searchInput.addEventListener("click", function () {
+        searchBox.style.transition = "border-color 0.3s";
+        searchBox.style.borderColor = "black";
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!searchInput.contains(event.target)) {
+          searchBox.style.transition = "border-color 0.3s";
+          searchBox.style.borderColor = originalBorderColor;
+        }
+      });
+      //--------------------------------------------------------
+    </script>
+  </body>
+</html>

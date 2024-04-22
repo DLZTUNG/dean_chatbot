@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accounts</title>
+    <link
+      rel="icon"
+      href="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+    />
+    <style>
+      body {
+        position: relative;
+        background: linear-gradient(
+          90deg,
+          rgba(111, 104, 238, 0.3757878151260504) 0%,
+          rgba(9, 113, 121, 0.23573179271708689) 48%,
+          rgba(136, 0, 255, 0.17690826330532217) 100%
+        );
+      }
+      table {
+        min-height: 40px;
+        max-height: 250px;
+        overflow: auto;
+        background-color: antiquewhite;
+        margin-right: 20px;
+        position: absolute;
+        margin-top: 30vh;
+        right: 0;
+        width: 60%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .table-account {
+        position: relative;
+        height: 80vh;
+        width: 50vw;
+      }
+
+      .box-1 {
+        top: 0;
+        right: 0;
+        height: 80vh;
+        width: 50vw;
+        position: absolute;
+      }
+
+      .acc-info {
+        display: flex;
+        margin-left: 20px;
+        margin-top: 25vh;
+      }
+
+      .item-form {
+        margin-left: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .item-form input {
+        border-radius: 10px;
+        font-size: 1.6rem;
+        margin-top: 20px;
+      }
+
+      .item-form input::placeholder {
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        cursor: pointer;
+        border: none;
+        border-radius: 15px;
+        width: 150px;
+        padding: 10px;
+        font-size: 1.2rem;
+        transition: all ease 0.3s;
+      }
+
+      .item-form .btn {
+        margin-top: 20px;
+        margin-left: 30px;
+      }
+
+      .btn:hover {
+        opacity: 0.5;
+      }
+
+      .btn.ref {
+        margin-top: 50px;
+        margin-left: 70px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-account">
+      <table>
+        <tr>
+          <th>Tên tài khoản</th>
+          <th>Mật khẩu</th>
+          <th>Email</th>
+        </tr>
+        {% for acc in list %}
+        <tr>
+          <td>{{ acc[1] }}</td>
+          <td>{{ acc[2] }}</td>
+          <td>{{ acc[3] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div class="box-1">
+      <div class="acc-info">
+        <form class="item-form" id="accountForm" method="POST">
+          <input type="text" name="name" placeholder="Nhập tên người dùng..." />
+          <input type="password" name="pass" placeholder="Nhập mật khẩu..." />
+          <input type="email" name="email" placeholder="Nhập email..." />
+          <button class="btn add" type="submit">Thêm</button>
+        </form>
+
+        <form class="item-form" id="deleteForm" method="POST">
+          <input
+            type="text"
+            placeholder="Nhập tên người dùng..."
+            name="namedel"
+          />
+          <button class="btn del" onclick="deleteItem('')">Xóa</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

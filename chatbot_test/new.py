@@ -4,11 +4,7 @@ import pickle
 import numpy as np
 import tensorflow as tf
 
-import nltk
 from pyvi import ViTokenizer, ViPosTagger, ViUtils
-from nltk.stem import WordNetLemmatizer
-
-lemmatizer = WordNetLemmatizer()
 
 file_path = 'intents.json'
 
@@ -19,7 +15,6 @@ def them_chuoi_vao_list(chuoi, danh_sach):
     tu = chuoi.split()  # Tách chuỗi thành các từ
     danh_sach.extend(tu)  # Thêm từng từ vào danh sách
     # Hoặc sử dụng danh_sach += tu
-
     return danh_sach
 
 words = []
@@ -55,7 +50,7 @@ outputEmpty = [0] * len(classes)
 for document in documents:
     bag = []
     wordPatterns = document[0]
-    wordPatterns = [lemmatizer.lemmatize(word.lower()) for word in wordPatterns]
+    wordPatterns = [x.lower() for x in wordPatterns]
     for word in words:
         bag.append(1) if word in wordPatterns else bag.append(0)
 

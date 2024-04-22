@@ -1,0 +1,207 @@
+:root {
+  --primary-color: #f05123;
+  --black-color: #000;
+  --white-color: #fff;
+  --gray-color: #666;
+  --text-color: #333;
+  --plum-color: #b80257;
+  --fb-color: #4080ff;
+  --mail-color: #f47425;
+  --invalid-color: #f33a58;
+  --desc-color: #0000008a;
+  --first-color: #1dbfaf;
+  --second-color: #1dbfaf;
+  --button-color: #1dbfaf;
+  --button-image: linear-gradient(70.06deg, #2cccff -5%, #22dfbf 106%);
+  --font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  --home-slideshow-left-space: 116px;
+  --home-section-left-space: 160px;
+}
+html {
+  font-family: var(--font-family);
+  font-size: 88%;
+}
+body {
+  background-image: url("../img/login.jpg");
+  align-items: center;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: flex;
+}
+.login_content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+  max-height: 600px;
+  padding-bottom: 0;
+}
+.container {
+  --width: 640px;
+  background: #fff;
+  border-radius: 8px;
+  max-width: calc(100vw - 32px);
+  padding: 48px 16px;
+  position: relative;
+  width: var(--width);
+  max-height: 550px;
+}
+.logo {
+  border-radius: 8px;
+  height: 44px;
+  object-fit: cover;
+  width: 44px;
+}
+.login_title {
+  color: #292929;
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 1.4;
+  font: var(-font-family);
+}
+h1 {
+  display: block;
+  font-size: 2em;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.username {
+  --height: 44px;
+  background-color: #fff;
+  border: 2px solid #dce0e3;
+  border-radius: 44px;
+  display: inline-block;
+  height: var(--height);
+  line-height: var(--height);
+  padding-left: 16px;
+  position: relative;
+  text-align: center;
+  width: 320px;
+}
+.login_heading {
+  overflow: hidden;
+}
+.login_body {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  padding-top: 18px;
+}
+.login_mainstep {
+  margin-top: 24px;
+}
+.SigninButton_icon1 {
+  left: 16px;
+  position: absolute;
+  top: 25%;
+}
+.password {
+  --height: 44px;
+  background-color: #fff;
+  border: 2px solid #dce0e3;
+  border-radius: 44px;
+  display: inline-block;
+  height: var(--height);
+  line-height: var(--height);
+  padding-left: 16px;
+  margin-left: 38px;
+  position: relative;
+  text-align: center;
+  width: 320px;
+  margin-top: 15px;
+}
+
+.email {
+  --height: 44px;
+  background-color: #fff;
+  border: 2px solid #dce0e3;
+  border-radius: 44px;
+  display: inline-block;
+  height: var(--height);
+  line-height: var(--height);
+  padding-left: 16px;
+  margin-left: 60px;
+  position: relative;
+  text-align: center;
+  width: 320px;
+  margin-top: 15px;
+}
+.donthaveacc {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 0;
+  padding: 24px 16px;
+  display: block;
+}
+.as {
+  color: #f05123;
+}
+.donthaveacc a {
+  text-decoration: none;
+}
+.login_accecptTerm {
+  color: #666;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  padding-top: 28px;
+  padding-left: 155px;
+  padding-right: 155px;
+}
+.login_button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.login_button:hover {
+  background-color: #0056b3;
+}
+
+.ad {
+  color: #666;
+}
+.login_about {
+  line-height: 1.8;
+  margin-top: 25px;
+  margin-left: 155px;
+}
+.login_about a {
+  color: white;
+  text-decoration: none;
+}
+.login_about span {
+  color: white;
+}
+/* mobile width<740px*/
+@media only screen and (max-width: 740px) {
+}
+/* tablet width>740px and <1024px*/
+@media only screen and (min-width: 740px) and (max-width: 1024px) {
+}
+
+.flash-message {
+  background-color: #ffc107; /* Màu nền */
+  color: #333; /* Màu chữ */
+  padding: 10px; /* Khoảng cách nội dung */
+  margin-bottom: 10px; /* Khoảng cách với các phần tử khác */
+  border-radius: 5px; /* Đường cong viền */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+}

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin</title>
+    <link
+      rel="icon"
+      href="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../static/css/admin.css" />
+    <style>
+      /* CSS styling */
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+      }
+
+      .function-block {
+        background-color: rgb(114, 189, 255);
+        color: #000000;
+        border: none !important;
+        border-radius: 15px;
+        font-size: 3.6rem;
+        margin: 30px;
+        padding: 60px 30px;
+        border: 1px solid #ccc;
+        text-align: center;
+        transition: all ease 0.3s;
+      }
+      .function-block:hover {
+        background: linear-gradient(
+          90deg,
+          rgba(111, 104, 238, 0.3757878151260504) 0%,
+          rgba(9, 113, 121, 0.23573179271708689) 48%,
+          rgba(136, 0, 255, 0.17690826330532217) 100%
+        );
+        color: aliceblue;
+      }
+      .btn.logout {
+        color: #ccc;
+        padding: 10px;
+        margin-right: 50px;
+        border-radius: 10px;
+        background-color: cadetblue;
+        transition: all ease 0.3s;
+      }
+      .btn.logout:hover {
+        color: cadetblue;
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header" id="head">
+      <div class="logo">
+        <a href="#">
+          <img
+            src="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+            alt="F8"
+          />
+        </a>
+        <h4 class="slogan">Học Lập Trình Thật Đơn Giản Cùng TF</h4>
+      </div>
+      <div class="account-cta">
+        <a class="btn logout" href="/">Log out</a>
+        <i class="fa-solid fa-user"></i>
+        <span class="username">{{ user }}</span>
+      </div>
+    </div>
+    <h1 class="title">Xin chào Admin!</h1>
+    <div class="container">
+      <a class="function-block" href="{{ url_for('Load_accounts_page') }}"
+        >Chỉnh sửa tài khoản</a
+      >
+      <!-- Giao diện và chức năng chỉnh sửa các tài khoản -->
+      <a class="function-block" href="{{ url_for('Load_transactions_page') }}"
+        >Xem các giao dịch</a
+      >
+      <!-- Giao diện và chức năng xem các giao dịch -->
+      <a class="function-block" href="{{ url_for('Load_courses_page') }}"
+        >Chỉnh sửa khóa học</a
+      >
+      <!-- Giao diện và chức năng chỉnh sửa các khóa học -->
+    </div>
+  </body>
+</html>

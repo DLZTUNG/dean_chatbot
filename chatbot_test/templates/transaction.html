@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transitions</title>
+    <link
+      rel="icon"
+      href="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+    />
+    <style>
+      body {
+        position: relative;
+        background: linear-gradient(
+          90deg,
+          rgba(111, 104, 238, 0.3757878151260504) 0%,
+          rgba(9, 113, 121, 0.23573179271708689) 48%,
+          rgba(136, 0, 255, 0.17690826330532217) 100%
+        );
+      }
+      table {
+        min-height: 40px;
+        max-height: 250px;
+        overflow: auto;
+        background-color: antiquewhite;
+        margin-right: 20px;
+        margin-top: 30vh;
+        right: 0;
+        width: 60%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border: 1px solid #ddd;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+
+      .table-account {
+        display: flex;
+        height: 80vh;
+        width: 100vw;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-account">
+      <table>
+        <tr>
+          <th>Tên tài khoản</th>
+          <th>Tên khóa học</th>
+          <th>Ngày giao dịch</th>
+        </tr>
+        {% for x in list %}
+        <tr>
+          <td>{{ x[1] }}</td>
+          <td>{{ x[0] }}</td>
+          <td>{{ x[2] }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

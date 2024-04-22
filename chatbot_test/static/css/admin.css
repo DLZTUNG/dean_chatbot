@@ -1,0 +1,150 @@
+* {
+  box-sizing: inherit;
+}
+
+body {
+  background-image: url("../img/background-admin.jpg");
+  margin: 0;
+  background-color: #ffffff;
+}
+
+body::-webkit-scrollbar {
+  width: 10px; /* Đặt chiều rộng thanh cuộn */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: rgba(230, 230, 230, 0.753); /* Màu nền của vùng track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(173, 173, 173, 0.5); /* Màu nền của thanh cuộn */
+  border-radius: 5px; /* Đặt góc bo tròn cho thanh cuộn */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(
+    194,
+    194,
+    194,
+    0.7
+  ); /* Màu nền của thanh cuộn khi rê chuột hover */
+}
+
+html {
+  scroll-behavior: smooth !important;
+  font-size: 62.5%;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+h4,
+strong {
+  font-weight: 600;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+}
+a:focus,
+a:hover,
+a:visited {
+  outline: none;
+  text-decoration: none;
+}
+
+.header {
+  --height: 66px;
+  align-items: center;
+  background-color: #ffffff;
+  border-bottom: 1px solid #cecece;
+  display: flex;
+  font-size: 1.4rem;
+  height: var(--height);
+  left: 0;
+  padding: 0 28px;
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 20;
+}
+
+.logo,
+.search,
+.account-cta,
+.sign-cta {
+  flex: 1 1;
+}
+
+.logo {
+  align-items: center;
+  display: flex;
+}
+
+.search {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-search {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.account-cta,
+.sign-cta {
+  font-size: 1.6rem;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.slogan {
+  font-size: 2.4rem;
+  margin-left: 16px;
+  color: #000000;
+}
+
+.logo img {
+  border-radius: 8px;
+  flex-shrink: 0;
+  height: 55px;
+  width: 55px;
+  object-fit: contain;
+}
+
+::placeholder {
+  /* chạy tốt trên Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgb(190, 190, 190);
+  opacity: 1;
+  /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* chạy trên Internet Explorer 10-11 */
+  color: rgb(190, 190, 190);
+}
+
+::-ms-input-placeholder {
+  /* chạy trên Microsoft Edge */
+  color: rgb(190, 190, 190);
+}
+
+.fa-user {
+  margin-right: 50px;
+}
+
+.username {
+  font-size: 2.6rem;
+  color: #b3b3b3;
+}
+
+.title {
+  font-size: 5rem;
+  text-align: center;
+  color: #ffffff;
+}

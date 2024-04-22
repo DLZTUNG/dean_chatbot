@@ -2,7 +2,6 @@ import random
 import json
 import pickle
 import numpy as np
-import nltk
 
 from pyvi import ViTokenizer, ViPosTagger, ViUtils
 from keras.models import load_model
@@ -29,7 +28,6 @@ def them_chuoi_vao_list(chuoi, danh_sach):
     # Hoặc sử dụng danh_sach += tu
 
     return danh_sach
-
 
 def clean_up_sentence(sentence):
     sentence_words = []
@@ -63,9 +61,10 @@ def get_response(intents_list, intents_json):
     for i in list_of_intents:
         if i['tag'] == tag:
             result = random.choice (i['responses'])
+            break
     return result
-def run_chatbot(message):
 
+def run_chatbot(message):
     ints = predict_class (message)
     res = get_response (ints, intents)
     return res
