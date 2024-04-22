@@ -1,58 +1,39 @@
 {
   "intents": [
     {
-      "tag": "greeting",
+      "tag": "Chào hỏi",
       "patterns": [
-        "Hi there",
-        "How are you",
-        "Is anyone there?",
-        "Hey",
-        "Hola",
+        "Bạn có ở đó không?",
+        "Xin chào!",
+        "Hey.",
         "Hello",
-        "Good day",
-        "Xin chao!"
+        "Bạn hãy giúp tôi!",
+        "Trường đại học kinh tế quốc dân",
+        "Trường đại học Bách Khoa Hà Nội"
       ],
       "responses": [
         "Hello",
-        "Good to see you again",
-        "Hi there, how can I help?",
-        "Chao ban"
+        "Rất vui vì được gặp bạn!",
+        "Chào bạn, tôi có thể giúp gì được cho bạn?",
+        "Chào bạn!"
       ],
       "context": [""]
     },
     {
-      "tag": "goodbye",
+      "tag": "Tạm biệt",
       "patterns": [
         "Bye",
-        "See you later",
-        "Goodbye",
-        "Nice chatting to you, bye",
-        "Till next time"
+        "Tạm biệt!",
+        "Chào bạn!",
+        "Hẹn gặp lại",
+        "Hẹn gặp bạn vào lần tiếp theo",
+        "Hẹn gặp lại sau"
       ],
       "responses": [
-        "See you!",
-        "Have a nice day",
-        "Bye! Come back again soon."
-      ],
-      "context": [""]
-    },
-    {
-      "tag": "thanks",
-      "patterns": [
-        "Thanks",
-        "Thank you",
-        "That's helpful",
-        "Awesome, thanks",
-        "Thanks for helping me"
-      ],
-      "responses": ["My pleasure", "You're Welcome"],
-      "context": [""]
-    },
-    {
-      "tag": "query",
-      "patterns": ["What is Simplilearn?"],
-      "responses": [
-        "Simplilearn is the popular online Bootcamp & online courses learning platform "
+        "Tạm biệt bạn!",
+        "Rất vui vì đã được giúp bạn!",
+        "Chúc bạn một ngày tốt lành!",
+        "Chào bạn!"
       ],
       "context": [""]
     }

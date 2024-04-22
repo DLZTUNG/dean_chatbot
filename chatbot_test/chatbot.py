@@ -4,20 +4,36 @@ import pickle
 import numpy as np
 import nltk
 
-from nltk.stem import WordNetLemmatizer
+from pyvi import ViTokenizer, ViPosTagger, ViUtils
 from keras.models import load_model
 
-lemmatizer = WordNetLemmatizer()
-intents = json.loads(open('intents.json').read())
+# Đọc file json
+file_path = 'intents.json'
 
-words = pickle.load(open('words.pkl', 'rb'))
-classes = pickle.load(open('classes.pkl', 'rb'))
+with open(file_path, 'r', encoding='utf-8') as file:
+    intents = json.load(file)
+
+# Đọc danh sách words từ tệp words.pkl
+with open('words.pkl', 'rb') as file:
+    words = pickle.load(file, encoding='utf-8', errors='surrogateescape')
+
+# Đọc danh sách classes từ tệp classes.pkl
+with open('classes.pkl', 'rb') as file:
+    classes = pickle.load(file, encoding='utf-8', errors='surrogateescape')
+
 model = load_model('chatbot_model.h5')
+
+def them_chuoi_vao_list(chuoi, danh_sach):
+    tu = chuoi.split()  # Tách chuỗi thành các từ
+    danh_sach.extend(tu)  # Thêm từng từ vào danh sách
+    # Hoặc sử dụng danh_sach += tu
+
+    return danh_sach
 
 
 def clean_up_sentence(sentence):
-    sentence_words = nltk.word_tokenize(sentence)
-    sentence_words = [lemmatizer.lemmatize(word) for word in sentence_words]
+    sentence_words = []
+    sentence_words = them_chuoi_vao_list(ViTokenizer.tokenize(sentence), sentence_words)
     return sentence_words
 
 def bag_of_words (sentence):
