@@ -16,8 +16,7 @@
         "Rất vui vì được gặp bạn!",
         "Chào bạn, tôi có thể giúp gì được cho bạn?",
         "Chào bạn!"
-      ],
-      "context": [""]
+      ]
     },
     {
       "tag": "Tạm biệt",
@@ -34,8 +33,7 @@
         "Rất vui vì đã được giúp bạn!",
         "Chúc bạn một ngày tốt lành!",
         "Chào bạn!"
-      ],
-      "context": [""]
+      ]
     }
   ]
 }

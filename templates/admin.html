@@ -23,9 +23,11 @@
         justify-content: center;
         align-items: center;
         height: 60vh;
+        flex-wrap: wrap;
       }
 
       .function-block {
+        flex-basis: 40%;
         background-color: rgb(114, 189, 255);
         color: #000000;
         border: none !important;
@@ -89,6 +91,10 @@
       <!-- Giao diện và chức năng xem các giao dịch -->
       <a class="function-block" href="{{ url_for('Load_courses_page') }}"
         >Chỉnh sửa khóa học</a
+      >
+      <!-- Giao diện và chức năng quản lý chatbot -->
+      <a class="function-block" href="{{ url_for('Load_chatbot_page') }}"
+        >Quản lý Chatbot</a
       >
       <!-- Giao diện và chức năng chỉnh sửa các khóa học -->
     </div>

@@ -1,10 +1,10 @@
-from flask import Flask, jsonify, redirect, render_template, request, Response, url_for, flash, session
+from flask import Flask, jsonify, redirect, render_template, request, Response, url_for, session
 import sqlite3
 
+from chat import get_response
 
 sqldbname = 'db/course_web.db'
 app = Flask(__name__, static_folder='static')
-app.secret_key = 'Tung'
 
 #RENDER TRANG CHỦ VÀ HIỂN THỊ KHÓA HỌC
 @app.route('/', methods = ['GET'])
@@ -16,6 +16,14 @@ def Load_home_page():
     courses_list = cursor.fetchall()
 
     return render_template('home.html', courses=courses_list)
+
+#Phương thức Post để lấy câu hỏi khi nhập vào chatbot
+@app.route('/predict', methods=['POST'])
+def predict():
+    text = request.get_json().get('message') 
+    response = get_response(text)
+    message = {"answer": response}
+    return jsonify(message)
 
 #LẤY HÌNH ẢNH TỪ DATABASE
 @app.route('/get_image.py')
@@ -133,6 +141,15 @@ def Add_course():
     conn.commit()
 
     return redirect(url_for('Load_courses_page'))
+
+@app.route('/ADMIN/chatbot', methods = ['GET'])
+def Load_chatbot_page():
+    conn = sqlite3.connect(sqldbname)
+    cursor = conn.cursor()
+    querry = 'SELECT * FROM Accounts'
+    cursor.execute(querry)
+    account_list = cursor.fetchall()
+    return render_template('chatbot.html', list = account_list)
 
 @app.route('/signup')
 def Load_sign_up_page():
