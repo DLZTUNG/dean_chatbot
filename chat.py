@@ -67,7 +67,7 @@ def get_response_for_web(msg):
     
     return "Xin lỗi vì tôi không hiểu câu hỏi của bạn, tôi vẫn đang trong quá trình phát triển."
  
-if __name__ == "__main__":
+'''if __name__ == "__main__":
     print("Let's chat! (type 'quit' to exit)")
     a = []
     while True:
@@ -78,5 +78,5 @@ if __name__ == "__main__":
 
         resp, tag, probability = get_response(sentence)
         print("Predict tag: {0}, probability: {1}".format(tag, probability))
-        print("{0}: {1}".format(bot_name, resp))
+        print("{0}: {1}".format(bot_name, resp))'''
 

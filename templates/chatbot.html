@@ -10,6 +10,7 @@
     />
     <style>
       body {
+        font-family: sans-serif;
         position: relative;
         background: linear-gradient(
           90deg,
@@ -19,13 +20,9 @@
         );
       }
       table {
-        min-height: 40px;
-        max-height: 250px;
-        overflow: auto;
         background-color: antiquewhite;
         margin-right: 20px;
         position: absolute;
-        margin-top: 30vh;
         right: 0;
         width: 60%;
         border-collapse: collapse;
@@ -37,13 +34,33 @@
         border: 1px solid #ddd;
       }
       th {
+        text-align: center;
         background-color: #f2f2f2;
       }
 
-      .table-account {
+      td {
+        cursor: pointer;
+      }
+
+      .table-ques {
+        margin-top: 15vh;
         position: relative;
-        height: 80vh;
         width: 50vw;
+        overflow-y: scroll;
+        min-height: 70vh;
+      }
+
+      .table-ques::-webkit-scrollbar {
+        width: 10px; /* Đặt chiều rộng thanh cuộn */
+      }
+
+      .table-ques::-webkit-scrollbar-track {
+        background-color: transparent; /* Màu nền của vùng track */
+      }
+
+      .table-ques::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 255, 255); /* Màu nền của thanh cuộn */
+        border-radius: 5px; /* Đặt góc bo tròn cho thanh cuộn */
       }
 
       .box-1 {
@@ -54,89 +71,150 @@
         position: absolute;
       }
 
-      .acc-info {
-        display: flex;
-        margin-left: 20px;
-        margin-top: 25vh;
+      .form-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-left: 200px;
+        width: 50%;
+        padding: 20px;
+        background-color: #f2f2f2;
+        border-radius: 15px;
       }
 
-      .item-form {
-        margin-left: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+      .form-container h2 {
+        font-size: 1.8rem;
       }
 
-      .item-form input {
-        border-radius: 10px;
+      .form-container label {
         font-size: 1.6rem;
-        margin-top: 20px;
       }
 
-      .item-form input::placeholder {
-        font-size: 1.2rem;
+      .form-container input[type="text"] {
+        width: 100%;
+        font-size: 1.4rem;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+      }
+
+      .form-container input[type="submit"] {
+        background-color: #66f3c4;
+        color: white;
+        font-size: 1.6rem;
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        transition: all ease 0.3s;
+        border-radius: 10px;
+      }
+
+      .form-container input[type="submit"]:hover {
+        background-color: #87ff8d;
       }
 
       .btn {
+        margin-bottom: 100px;
         cursor: pointer;
+        color: #ffffff;
+        background-color: #66f3c4;
+        border-radius: 10px;
         border: none;
-        border-radius: 15px;
-        width: 150px;
-        padding: 10px;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
+        padding: 10px 20px;
+        position: absolute;
+        bottom: 0;
         transition: all ease 0.3s;
       }
 
-      .item-form .btn {
-        margin-top: 20px;
-        margin-left: 30px;
+      .btn.del {
+        margin-left: 500px;
+        width: 150px;
+        text-align: center;
       }
 
+      .btn.reset {
+        margin-left: 250px;
+      }
       .btn:hover {
-        opacity: 0.5;
-      }
-
-      .btn.ref {
-        margin-top: 50px;
-        margin-left: 70px;
+        background-color: #87ff8d;
       }
     </style>
   </head>
   <body>
-    <div class="table-account">
+    <div class="table-ques">
       <table>
         <tr>
-          <th>Tên tài khoản</th>
-          <th>Mật khẩu</th>
-          <th>Email</th>
+          <th>Unknow Patterns</th>
         </tr>
-        {% for acc in list %}
+        {% for x in list %}
         <tr>
-          <td>{{ acc[1] }}</td>
-          <td>{{ acc[2] }}</td>
-          <td>{{ acc[3] }}</td>
+          <td onclick="copyTextToInput(this)">{{ x[0] }}</td>
         </tr>
         {% endfor %}
       </table>
     </div>
     <div class="box-1">
-      <div class="acc-info">
-        <form class="item-form" id="accountForm" method="POST">
-          <input type="text" name="name" placeholder="Nhập tên người dùng..." />
-          <input type="password" name="pass" placeholder="Nhập mật khẩu..." />
-          <input type="email" name="email" placeholder="Nhập email..." />
-          <button class="btn add" type="submit">Thêm</button>
-        </form>
-
-        <form class="item-form" id="deleteForm" method="POST">
-          <input
-            type="text"
-            placeholder="Nhập tên người dùng..."
-            name="namedel"
-          />
-          <button class="btn del" onclick="deleteItem('')">Xóa</button>
+      <div class="form-container">
+        <h2>ADD DATA</h2>
+        <form action="{{url_for('Load_chatbot_page')}}" method="POST">
+          <label for="tag">Tag:</label>
+          <input type="text" id="tag" name="tag" required /><br /><br />
+          <label for="pattern">Pattern:</label>
+          <input type="text" id="pattern" name="pattern" /><br /><br />
+          <label for="response">Response:</label>
+          <input type="text" id="response" name="response" /><br /><br />
+          <input type="submit" value="Add Data" />
         </form>
       </div>
+      <button class="btn reset" id="resetBtn">Reset Chatbot</button>
+      <a class="btn del" id="delBtn">Delete</a>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      function copyTextToInput(td) {
+        var text = td.innerText || td.textContent;
+        var input = document.getElementById("pattern");
+        input.value = text;
+      }
+      //Xử lý reset chatbot
+      $(document).ready(function () {
+        $("#resetBtn").click(function () {
+          $.ajax({
+            url: "/reset_chatbot",
+            type: "POST",
+            success: function (response) {
+              alert("Successfully");
+            },
+            error: function (xhr, status, error) {
+              alert("Error");
+            },
+          });
+        });
+      });
+
+      //Xử lý xóa Unknow ques
+      $(document).ready(function () {
+        $("#delBtn").click(function (e) {
+          e.preventDefault();
+          var confirmation = confirm(
+            "Are you sure want to delete the records?"
+          );
+          if (confirmation) {
+            $.ajax({
+              url: "/ADMIN/chatbot",
+              type: "DELETE",
+              success: function (response) {
+                alert("Successfully");
+              },
+              error: function (xhr, status, error) {
+                alert("Error");
+              },
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>

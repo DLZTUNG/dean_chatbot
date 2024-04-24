@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Json</title>
+    <link
+      rel="icon"
+      href="https://th.bing.com/th/id/R.4a12ece75a938cb8c0a90bd6d6cfccb1?rik=V3RkZZdbSHXjqg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpng-transparent-images%2fpng-transparent-images-19.png&ehk=IjEoTXu6aoKXUZqOthLhKyJDqtsHwJg2y9t21ZqE4I0%3d&risl=&pid=ImgRaw&r=0"
+    />
+    <style>
+      body {
+        font-family: sans-serif;
+        background: linear-gradient(
+          90deg,
+          rgba(111, 104, 238, 0.3757878151260504) 0%,
+          rgba(9, 113, 121, 0.23573179271708689) 48%,
+          rgba(136, 0, 255, 0.17690826330532217) 100%
+        );
+      }
+      table {
+        background-color: antiquewhite;
+        border-collapse: collapse;
+        width: 40vw;
+      }
+
+      th,
+      td {
+        width: 50%;
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+      .json-data {
+        display: flex;
+        flex-wrap: wrap;
+        width: 90vw;
+        padding: 0 20px;
+        margin-left: 100px;
+      }
+
+      .json-data .column-item {
+        flex-basis: 50%;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>CHATBOT DATA</h1>
+    <div class="json-data">
+      {% for intent in data.intents %}
+      <div class="column-item">
+        <h2 class="tag">{{ (intent.tag).upper() }}</h2>
+        <table>
+          <tr>
+            <th>Patterns</th>
+            <th>Responses</th>
+          </tr>
+          {% for pattern in intent.patterns %}
+          <tr>
+            <td>{{ pattern }}</td>
+            <td>{{ intent.responses[loop.index0] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% endfor %}
+    </div>
+  </body>
+</html>

@@ -7,9 +7,7 @@
         "Xin chào!",
         "Hey.",
         "Hello",
-        "Bạn hãy giúp tôi!",
-        "Trường đại học kinh tế quốc dân",
-        "Trường đại học Bách Khoa Hà Nội"
+        "Bạn hãy giúp tôi!"
       ],
       "responses": [
         "Hello",
@@ -33,6 +31,70 @@
         "Rất vui vì đã được giúp bạn!",
         "Chúc bạn một ngày tốt lành!",
         "Chào bạn!"
+      ]
+    },
+    {
+      "tag": "Khóa học",
+      "patterns": [
+        "Web mình bán những khóa học gì?",
+        "Các khóa học bên mình có?",
+        "Bên mình có những khóa học nào?",
+        "Khóa học",
+        "Thông tin những khóa học?",
+        "Bán những khóa học nào?"
+      ],
+      "responses": [
+        "Chúng tôi có những khóa học liên quan đến lập trình như: \n - Lập trình Web \n - Lập trình Mobile \n - ... \n Kèm theo các khóa học bổ trợ cho lập trình."
+      ]
+    },
+    {
+      "tag": "Khóa học HTML&CSS",
+      "patterns": [
+        "Khóa học HTML CSS",
+        "HTML CSS",
+        "Thông tin khóa học HTML CSS"
+      ],
+      "responses": [
+        "Trong khóa học này, bạn sẽ học cách sử dụng HTML để tạo cấu trúc và định dạng nội dung trên trang web, đồng thời biết cách sử dụng CSS để tùy chỉnh giao diện và kiểu dáng của các phần tử HTML."
+      ]
+    },
+    {
+      "tag": "Ưu điểm khóa học HTML&CSS",
+      "patterns": [
+        "Những ưu điểm của khóa học HTML CSS?",
+        "Ưu điểm khóa học HTML CSS",
+        "Ưu điểm HTML CSS",
+        "Liệt kê những ưu điểm của khóa học HTML CSS"
+      ],
+      "responses": ["Ưu điểm của khóa học HTML..."]
+    },
+    {
+      "tag": "Cảm ơn",
+      "patterns": [
+        "Thanks",
+        "Cảm ơn vì đã giúp tôi!",
+        "Bạn thật hữu ích!",
+        "Thông tin bạn đưa thật hữu ích",
+        "Thanks bạn nhiều"
+      ],
+      "responses": [
+        "Rất vui vì được giúp đỡ bạn!",
+        "Cảm ơn bạn đã khen!",
+        "Mong bạn thấy thông tin này hỗ trợ"
+      ]
+    },
+    {
+      "tag": "Hỏi thăm",
+      "patterns": [
+        "Hỏi thăm tui đi",
+        "Cậu có khỏe không?",
+        "Khỏe không",
+        "thật không"
+      ],
+      "responses": [
+        "Cậu có khỏe không?",
+        "Cảm ơn vì bạn đã hỏi, tôi khỏe!",
+        "Có tôi rất khỏe!"
       ]
     }
   ]
