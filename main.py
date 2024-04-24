@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, redirect, render_template, request, Response, url_for, session
 import sqlite3
 
-from chat import get_response
+from chat import get_response_for_web
 
 sqldbname = 'db/course_web.db'
 app = Flask(__name__, static_folder='static')
@@ -21,7 +21,7 @@ def Load_home_page():
 @app.route('/predict', methods=['POST'])
 def predict():
     text = request.get_json().get('message') 
-    response = get_response(text)
+    response = get_response_for_web(text)
     message = {"answer": response}
     return jsonify(message)
 

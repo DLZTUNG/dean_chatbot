@@ -4,11 +4,11 @@ import json
 import torch
 
 from model import NeuralNet
-from nltk_utils import bag_of_words, tokenize
+from nltk_vietnam_utils import tokenize, bag_of_words
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-with open('intents.json', 'r') as json_data:
+with open('vietnam.json', 'r', encoding='utf-8') as json_data:
     intents = json.load(json_data)
 
 FILE = "data.pth"
@@ -43,9 +43,29 @@ def get_response(msg):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
+                return random.choice(intent['responses']), tag, prob.item()
+    
+    return "Xin lỗi vì tôi không hiểu câu hỏi của bạn, tôi vẫn đang trong quá trình phát triển.", "No tag", prob.item()
+
+def get_response_for_web(msg):
+    sentence = tokenize(msg)
+    X = bag_of_words(sentence, all_words)
+    X = X.reshape(1, X.shape[0])
+    X = torch.from_numpy(X).to(device)
+
+    output = model(X)
+    _, predicted = torch.max(output, dim=1)
+
+    tag = tags[predicted.item()]
+
+    probs = torch.softmax(output, dim=1)
+    prob = probs[0][predicted.item()]
+    if prob.item() > 0.75:
+        for intent in intents['intents']:
+            if tag == intent["tag"]:
                 return random.choice(intent['responses'])
     
-    return "I do not understand..."
+    return "Xin lỗi vì tôi không hiểu câu hỏi của bạn, tôi vẫn đang trong quá trình phát triển."
  
 if __name__ == "__main__":
     print("Let's chat! (type 'quit' to exit)")
@@ -56,6 +76,7 @@ if __name__ == "__main__":
         if sentence == "quit":
             break
 
-        resp = get_response(sentence)
+        resp, tag, probability = get_response(sentence)
+        print("Predict tag: {0}, probability: {1}".format(tag, probability))
         print("{0}: {1}".format(bot_name, resp))
 
