@@ -111,6 +111,10 @@ html {
   box-shadow: var(--primaryBoxShadow);
 }
 
+.chatbox__content--header {
+  margin-left: 10px;
+}
+
 .chatbox__image--header {
   margin-right: 10px;
 }

@@ -44,7 +44,7 @@
         "Bán những khóa học nào?"
       ],
       "responses": [
-        "Chúng tôi có những khóa học liên quan đến lập trình như: \n - Lập trình Web \n - Lập trình Mobile \n - ... \n Kèm theo các khóa học bổ trợ cho lập trình."
+        "Chúng tôi có những khóa học liên quan đến lập trình như: Lập trình Web, Lập trình Mobile,... Kèm theo các khóa học bổ trợ cho lập trình."
       ]
     },
     {
@@ -85,14 +85,9 @@
     },
     {
       "tag": "Hỏi thăm",
-      "patterns": [
-        "Hỏi thăm tui đi",
-        "Cậu có khỏe không?",
-        "Khỏe không",
-        "thật không"
-      ],
+      "patterns": ["Cậu có khỏe không?", "Khỏe không"],
       "responses": [
-        "Cậu có khỏe không?",
+        "Tôi khỏe, cậu có khỏe không?",
         "Cảm ơn vì bạn đã hỏi, tôi khỏe!",
         "Có tôi rất khỏe!"
       ]
