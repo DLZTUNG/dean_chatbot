@@ -48,7 +48,7 @@ X_train = np.array(X_train)
 y_train = np.array(y_train)
 
 num_epochs = 1000
-batch_size = 8
+batch_size = 16
 learning_rate = 0.01
 input_size = len(X_train[0])
 hidden_size = 8
