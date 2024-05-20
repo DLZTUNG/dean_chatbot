@@ -57,9 +57,9 @@ def get_response_for_web(msg):
     if prob.item() > 0.75:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                return random.choice(intent['responses'])
+                return random.choice(intent['responses']), tag
     
-    return "Xin lỗi vì tôi không hiểu câu hỏi của bạn, tôi vẫn đang trong quá trình phát triển."
+    return "Xin lỗi vì tôi không hiểu câu hỏi của bạn, tôi vẫn đang trong quá trình phát triển.", "No tag"
  
 '''if __name__ == "__main__":
     print("Let's chat! (type 'quit' to exit)")

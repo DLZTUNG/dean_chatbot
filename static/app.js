@@ -54,7 +54,7 @@ class Chatbox {
     })
       .then((r) => r.json())
       .then((r) => {
-        let msg2 = { name: "BOT", message: r.answer };
+        let msg2 = { name: "BOT", message: r.answer, tag: r.tag };
         this.messages.push(msg2);
         this.updateChatText(chatbox);
         textField.value = "";
@@ -73,10 +73,26 @@ class Chatbox {
       .reverse()
       .forEach(function (item) {
         if (item.name === "BOT") {
-          html +=
-            '<div class="messages__item messages__item--visitor">' +
-            item.message +
-            "</div>";
+          if (item.tag !== "none") {
+            html +=
+              '<div class="linkcourse messages__item messages__item--visitor">' +
+              '<a target="_blank" href="http://127.0.0.1:8080/product/' +
+              item.tag +
+              '" >' +
+              "Khóa học " +
+              item.tag +
+              "</a>" +
+              "</div>";
+            html +=
+              '<div class="messages__item messages__item--visitor">' +
+              item.message +
+              "</div>";
+          } else {
+            html +=
+              '<div class="messages__item messages__item--visitor">' +
+              item.message +
+              "</div>";
+          }
         } else {
           html +=
             '<div class="messages__item messages__item--operator">' +

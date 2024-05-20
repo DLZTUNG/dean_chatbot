@@ -1,96 +1,248 @@
 {
-  "intents": [
-    {
-      "tag": "Chào hỏi",
-      "patterns": [
-        "Bạn có ở đó không?",
-        "Xin chào!",
-        "Hey.",
-        "Hello",
-        "Bạn hãy giúp tôi!"
-      ],
-      "responses": [
-        "Hello",
-        "Rất vui vì được gặp bạn!",
-        "Chào bạn, tôi có thể giúp gì được cho bạn?",
-        "Chào bạn!"
-      ]
-    },
-    {
-      "tag": "Tạm biệt",
-      "patterns": [
-        "Bye",
-        "Tạm biệt!",
-        "Chào tạm biệt bạn!",
-        "Hẹn gặp lại",
-        "Hẹn gặp bạn vào lần tiếp theo",
-        "Hẹn gặp lại sau"
-      ],
-      "responses": [
-        "Tạm biệt bạn!",
-        "Rất vui vì đã được giúp bạn!",
-        "Chúc bạn một ngày tốt lành!",
-        "Chào bạn!"
-      ]
-    },
-    {
-      "tag": "Khóa học",
-      "patterns": [
-        "Web mình bán những khóa học gì?",
-        "Các khóa học bên mình có?",
-        "Bên mình có những khóa học nào?",
-        "Khóa học",
-        "Thông tin những khóa học?",
-        "Bán những khóa học nào?"
-      ],
-      "responses": [
-        "Chúng tôi có những khóa học liên quan đến lập trình như: Lập trình Web, Lập trình Mobile,... Kèm theo các khóa học bổ trợ cho lập trình."
-      ]
-    },
-    {
-      "tag": "Khóa học HTML&CSS",
-      "patterns": [
-        "Khóa học HTML CSS",
-        "HTML CSS",
-        "Thông tin khóa học HTML CSS"
-      ],
-      "responses": [
-        "Trong khóa học này, bạn sẽ học cách sử dụng HTML để tạo cấu trúc và định dạng nội dung trên trang web, đồng thời biết cách sử dụng CSS để tùy chỉnh giao diện và kiểu dáng của các phần tử HTML."
-      ]
-    },
-    {
-      "tag": "Ưu điểm khóa học HTML&CSS",
-      "patterns": [
-        "Những ưu điểm của khóa học HTML CSS?",
-        "Ưu điểm khóa học HTML CSS",
-        "Ưu điểm HTML CSS",
-        "Liệt kê những ưu điểm của khóa học HTML CSS"
-      ],
-      "responses": ["Ưu điểm của khóa học HTML..."]
-    },
-    {
-      "tag": "Cảm ơn",
-      "patterns": [
-        "Thanks",
-        "Cảm ơn vì đã giúp tôi!",
-        "Bạn thật hữu ích!",
-        "Thông tin bạn đưa thật hữu ích",
-        "Thanks bạn nhiều"
-      ],
-      "responses": [
-        "Rất vui vì được giúp đỡ bạn!",
-        "Cảm ơn bạn đã khen!",
-        "Mong bạn thấy thông tin này hỗ trợ"
-      ]
-    },
-    {
-      "tag": "Hỏi thăm",
-      "patterns": ["Cậu có khỏe không?", "Khỏe không"],
-      "responses": [
-        "Tôi khỏe, cậu có khỏe không?",
-        "Cảm ơn vì bạn đã hỏi, tôi khỏe!",
-        "Có tôi rất khỏe!"
-      ]
-    }
-  ]
+    "intents": [
+        {
+            "tag": "Chào hỏi",
+            "patterns": [
+                "Bạn có ở đó không?",
+                "Xin chào!",
+                "Hey.",
+                "Hello",
+                "Bạn hãy giúp tôi!",
+                "Hi"
+            ],
+            "responses": [
+                "Hello",
+                "Rất vui vì được gặp bạn!",
+                "Chào bạn, tôi có thể giúp gì được cho bạn?",
+                "Chào bạn!"
+            ]
+        },
+        {
+            "tag": "Tạm biệt",
+            "patterns": [
+                "Bye",
+                "Tạm biệt!",
+                "Chào tạm biệt bạn!",
+                "Hẹn gặp lại",
+                "Hẹn gặp bạn vào lần tiếp theo",
+                "Hẹn gặp lại sau"
+            ],
+            "responses": [
+                "Tạm biệt bạn!",
+                "Rất vui vì đã được giúp bạn!",
+                "Chúc bạn một ngày tốt lành!",
+                "Chào bạn!"
+            ]
+        },
+        {
+            "tag": "Khóa học",
+            "patterns": [
+                "Web mình bán những khóa học gì?",
+                "Các khóa học bên mình có?",
+                "Bên mình có những khóa học nào?",
+                "Thông tin những khóa học?",
+                "Bán những khóa học nào?"
+            ],
+            "responses": [
+                "Chúng tôi có những khóa học liên quan đến lập trình như: Lập trình Web, Lập trình Mobile,... Kèm theo các khóa học bổ trợ cho lập trình."
+            ]
+        },
+        {
+            "tag": "HTML&CSS",
+            "patterns": [
+                "Khóa học HTML CSS",
+                "HTML CSS",
+                "Khóa học HTML",
+                "CSS",
+                "Thông tin khóa học HTML CSS",
+                "Đường dẫn đến khóa học HTML CSS"
+            ],
+            "responses": [
+                "Trong khóa học này, bạn sẽ học cách sử dụng HTML để tạo cấu trúc và định dạng nội dung trên trang web, đồng thời biết cách sử dụng CSS để tùy chỉnh giao diện và kiểu dáng của các phần tử HTML."
+            ]
+        },
+        {
+            "tag": "Ưu điểm khóa học HTML&CSS",
+            "patterns": [
+                "Những ưu điểm của khóa học HTML CSS?",
+                "Ưu điểm khóa học HTML CSS",
+                "Ưu điểm HTML CSS",
+                "Liệt kê những ưu điểm của khóa học HTML CSS"
+            ],
+            "responses": [
+                "Ưu điểm của khóa học HTML..."
+            ]
+        },
+        {
+            "tag": "Lập trình IOS",
+            "patterns": [
+                "Khóa học IOS",
+                "Lập trình IOS",
+                "Thông tin khóa học Lập trình IOS",
+                "Đường dẫn đến khóa học IOS"
+            ],
+            "responses": [
+                "Đây là khóa học được triển khai trên iTunes, sử dụng ngôn ngữ lập trình Swift. Everyone Can Code - Intro to App Development bao gồm những nội dung cơ bản nhất khi học lập trình iOS với Swift."
+            ]
+        },
+        {
+            "tag": "Ưu điểm khóa học IOS",
+            "patterns": [
+                "Những ưu điểm của khóa học lập trình IOS?",
+                "Ưu điểm khóa học lập trình IOS",
+                "Ưu điểm IOS",
+                "Liệt kê những ưu điểm của khóa học lập trình IOS"
+            ],
+            "responses": [
+                "Ưu điểm của khóa học lập trình IOS..."
+            ]
+        },
+        {
+            "tag": "Sử dụng Github",
+            "patterns": [
+                "Khóa học sử dụng Github",
+                "Sử dụng Github",
+                "Ứng dụng Github vào các dự án",
+                "Đường dẫn đến khóa học Github"
+            ],
+            "responses": [
+                "Git là một hệ thống quản lý phiên bản phân tán (Distributed Version Control System). Hiểu nôm na rằng Git là 1 hệ thống giúp cho việc quản lý tài liệu, source code... của 1 nhóm các developer cùng làm chung dự án."
+            ]
+        },
+        {
+            "tag": "C++ trong lập trình Game",
+            "patterns": [
+                "Khóa học C++ cho làm Game",
+                "Lập trình C++ cho Game",
+                "Lập trình Game sử dụng C++",
+                "C++ Game",
+                "Thông tin về khóa học C++ cho lập trình Game"
+            ],
+            "responses": [
+                "C++ là ngôn ngữ đa nền tảng cho phép bạn quản lý hiệu quả bộ nhớ mà không cần tải nó. Không một game hoàn chỉnh nào được tạo ra nếu thiếu C++."
+            ]
+        },
+        {
+            "tag": "Cảm ơn",
+            "patterns": [
+                "Thanks",
+                "Cảm ơn vì đã giúp tôi!",
+                "Bạn thật hữu ích!",
+                "Thông tin bạn đưa thật hữu ích",
+                "Thanks bạn nhiều"
+            ],
+            "responses": [
+                "Rất vui vì được giúp đỡ bạn!",
+                "Cảm ơn bạn đã khen!",
+                "Mong bạn thấy thông tin này hỗ trợ"
+            ]
+        },
+        {
+            "tag": "Hỏi thăm",
+            "patterns": [
+                "Cậu có khỏe không?",
+                "Khỏe không"
+            ],
+            "responses": [
+                "Tôi khỏe, cậu có khỏe không?",
+                "Cảm ơn vì bạn đã hỏi, tôi khỏe!",
+                "Có tôi rất khỏe!"
+            ]
+        },
+        {
+            "tag": "Thanh toán",
+            "patterns": [
+                "Tôi có thể thanh toán qua đâu?",
+                "Thanh toán bằng những hình thức nào?",
+                "Các hình thức thanh toán",
+                "Làm sao để thanh toán?",
+                "Thanh toán kiểu gì?"
+            ],
+            "responses": [
+                "Bạn có thể thanh toán qua MoMo, VN Pay"
+            ]
+        },
+        {
+            "tag": "Hỏi đáp 1",
+            "patterns": [
+                "Các khóa học có dành cho người mới bắt đầu không",
+                "Người chưa biết gì có học được không",
+                "Chưa biết gì",
+                "Dành cho người mới bắt đầu"
+            ],
+            "responses": [
+                "Các khóa học bên mình đều hướng dẫn cụ thể cho người mới bắt đầu!"
+            ]
+        },
+        {
+            "tag": "Đăng ký",
+            "patterns": [
+                "Làm sao để tôi có thể đăng ký",
+                "Mua khóa học như thế nào?",
+                "Tiến hành mua khóa học như thế nào?",
+                "Tôi muốn đăng ký khóa học"
+            ],
+            "responses": [
+                "Trước khi mua khóa học, bạn cần đăng ký/ đăng nhập vào hệ thông, sau đó bạn có thể tiến hành mua và thanh toán khóa học!"
+            ]
+        },
+        {
+            "tag": "Kinh nghiệm giảng viên",
+            "patterns": [
+                "Đội ngũ giảng viên có kinh nghiệm gì?",
+                "Kinh nghiệm của đội ngũ giảng dạy",
+                "Các giảng viên có uy tín không?",
+                "Khóa học có uy tín không?"
+            ],
+            "responses": [
+                "Các bài học trong khóa học đều được biên soạn chi tiết theo lộ trình bởi các lập trình viên đã có kinh nghiệm trên 5 năm trong các lĩnh vực!"
+            ]
+        },
+        {
+            "tag": "Hình thức học",
+            "patterns": [
+                "Hình thức học là như nào?",
+                "Học trực tuyến hay trực tiếp?",
+                "Tôi muốn hiểu về hình thức học"
+            ],
+            "responses": [
+                "Bên mình theo hình thức học online!"
+            ]
+        },
+        {
+            "tag": "Bài tập",
+            "patterns": [
+                "Các khóa học bên mình có bài tập không?",
+                "Có bài tập để luyện tập không?",
+                "Bài tập trong các khóa học có độ khó như thế nào?",
+                "Mình có thể vừa học lý thuyết vừa vận dụng được không?"
+            ],
+            "responses": [
+                "Các khóa học bên mình đều được sắp xếp xen kẽ bài tập vào các phần lý thuyết, giúp học viên có thể vừa học vừa vận dụng. Các bài tập sẽ có độ khó tăng dần!"
+            ]
+        },
+        {
+            "tag": "Giá khóa học",
+            "patterns": [
+                "Giá các khóa học như thế nào?",
+                "Giá khóa học",
+                "Có các đợt giảm giá khóa học không?"
+            ],
+            "responses": [
+                "Các khóa học bên mình đều được đặt giá phù hợp cho học sinh, sinh viên có đam mê với công nghệ thông tin, và sẽ không có các đợt giảm giá!"
+            ]
+        },
+        {
+            "tag": "Thời lượng khóa học",
+            "patterns": [
+                "Thời lượng một khóa học là bao lâu?",
+                "Học trong bao lâu?",
+                "Một khóa học mình học trong bao lâu vậy ạ?",
+                "Khóa học kéo dài bao lâu?"
+            ],
+            "responses": [
+                "Trung bình một khóa học sẽ có khoảng gần 50 bài học, kèm bài tập vận dụng xen kẽ. Tổng thời lượng các video trung bình là 30 tiếng/khóa học"
+            ]
+        }
+    ]
 }

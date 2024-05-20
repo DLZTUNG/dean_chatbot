@@ -28,12 +28,17 @@ def predict():
     conn = sqlite3.connect(sqldbname)
     cursor = conn.cursor()
     text = request.get_json().get('message')
-    response = get_response_for_web(text)
+    response, tag = get_response_for_web(text)
+    querry = "select course_name from Course where course_name = '{0}'"
+    cursor.execute(querry.format(tag))
+    tagCourse = cursor.fetchone()
     if (response == 'Xin lỗi vì tôi không hiểu câu hỏi của bạn, tôi vẫn đang trong quá trình phát triển.'):
         querry = "INSERT INTO UnknowQues(ques)VALUES ('{0}')"
         cursor.execute(querry.format(text))
         conn.commit()
-    message = {"answer": response}
+    if not tagCourse:
+        tag = "none"
+    message = {"answer": response, "tag": tag}
     return jsonify(message)
 
 #--------------------------------------------------------------------------------------------------------------
@@ -46,8 +51,8 @@ def get_image():
     #Lấy request từ HTML
     course_id = request.args.get('course_id')
     # Truy vấn dữ liệu hình ảnh từ cột course_image trong bảng Course
-    select_query = "SELECT course_image FROM Course WHERE course_id = ?"
-    cursor.execute(select_query, (course_id,))
+    select_query = "SELECT course_image FROM Course WHERE course_id = {0}"
+    cursor.execute(select_query.format(course_id))
     result = cursor.fetchone()
     
     # Lấy dữ liệu hình ảnh từ kết quả truy vấn
@@ -156,17 +161,19 @@ def Add_course():
     return redirect(url_for('Load_courses_page'))
 
 
-
 #--------------------------------------------------------------------------------------------------------------
 
 @app.route('/ADMIN/chatbot', methods = ['GET'])
 def Load_chatbot_page():
+    with open('vietnam.json', 'r', encoding='utf-8') as file:
+        data = json.load(file)
+    
     conn = sqlite3.connect(sqldbname)
     cursor = conn.cursor()
     querry = 'SELECT * FROM UnknowQues'
     cursor.execute(querry)
     ques_list = cursor.fetchall()
-    return render_template('chatbot.html', list = ques_list)
+    return render_template('chatbot.html', list = ques_list, data = data)
 
 @app.route('/ADMIN/chatbot', methods=['POST'])
 def Add_data_chatbot():
@@ -261,9 +268,6 @@ def Buy_course(username, coursename):
         cursor.execute("SELECT course_id FROM Course WHERE course_name = '{0}'".format((coursename)))
         result = cursor.fetchone()
         course_id = result[0]
-        connection.close()
-        connection = sqlite3.connect(sqldbname)
-        cursor = connection.cursor()
         cursor.execute("SELECT user_id FROM Accounts WHERE username = '{0}'".format((username)))
         result = cursor.fetchone()
         user_id = result[0]

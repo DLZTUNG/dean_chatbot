@@ -140,6 +140,50 @@
       .btn:hover {
         background-color: #87ff8d;
       }
+      .tag-container {
+        position: relative;
+      }
+
+      .dropdown-content {
+        padding: 15px;
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        width: 300px;
+        overflow-y: scroll;
+        max-height: 160px;
+      }
+
+      .dropdown-content::-webkit-scrollbar {
+        width: 10px; /* Đặt chiều rộng thanh cuộn */
+      }
+
+      .dropdown-content::-webkit-scrollbar-track {
+        background-color: transparent; /* Màu nền của vùng track */
+      }
+
+      .dropdown-content::-webkit-scrollbar-thumb {
+        background-color: rgb(255, 255, 255); /* Màu nền của thanh cuộn */
+        border-radius: 5px; /* Đặt góc bo tròn cho thanh cuộn */
+      }
+
+      .dropdown-content span {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid rgb(185, 185, 185);
+        transition: all ease-in 0.2s;
+      }
+
+      .dropdown-content span:hover {
+        cursor: pointer;
+        background-color: #f1f1f1;
+      }
     </style>
   </head>
   <body>
@@ -160,7 +204,15 @@
         <h2>ADD DATA</h2>
         <form action="{{url_for('Load_chatbot_page')}}" method="POST">
           <label for="tag">Tag:</label>
-          <input type="text" id="tag" name="tag" required /><br /><br />
+          <div class="tag-container">
+            <input type="text" id="tag" name="tag" required />
+            <div id="dropdown" class="dropdown-content">
+              {% for intent in data.intents %}
+              <span class="dropdown-item">{{ intent.tag }}</span>
+              {% endfor %}
+            </div>
+          </div>
+          <br /><br />
           <label for="pattern">Pattern:</label>
           <input type="text" id="pattern" name="pattern" /><br /><br />
           <label for="response">Response:</label>
@@ -213,6 +265,33 @@
               },
             });
           }
+        });
+      });
+      // Dropbox phần tag
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const tagBox = document.getElementById("tag");
+        const dropdown = document.getElementById("dropdown");
+        const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+        tagBox.addEventListener("focus", () => {
+          dropdown.style.display = "block";
+        });
+
+        document.addEventListener("click", (event) => {
+          if (
+            !tagBox.contains(event.target) &&
+            !dropdown.contains(event.target)
+          ) {
+            dropdown.style.display = "none";
+          }
+        });
+
+        dropdownItems.forEach((item) => {
+          item.addEventListener("click", (event) => {
+            event.preventDefault(); // Ngăn chặn hành vi mặc định của thẻ <a>
+            tagBox.value = item.textContent; // Đặt giá trị của ô input thành tên danh mục
+            dropdown.style.display = "none"; // Ẩn dropdown sau khi chọn
+          });
         });
       });
     </script>
